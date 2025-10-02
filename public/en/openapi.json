@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NirKyy API",
+    "version": "1.0.0",
+    "description": "API documentation for NirKyy services.",
+    "contact": {
+      "name": "NirKyy",
+      "url": "https://wa.me/6283894391287"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://dummyjson.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Main",
+      "description": "Main endpoints"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": ["Main"],
+        "summary": "Get all products",
+        "responses": {
+          "200": {
+            "description": "A list of products.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "products": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

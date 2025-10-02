@@ -1,3 +1,5 @@
+"use client";
+
 import { AppLogo } from "@/components/icons";
 import {
   Sidebar,
@@ -10,8 +12,10 @@ import {
 } from "@/components/ui/sidebar";
 import { Network, Github } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { useLanguage } from "@/context/language-context";
 
 export function AppSidebar() {
+  const { t } = useLanguage();
   return (
     <Sidebar>
       <SidebarHeader>
@@ -25,9 +29,9 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton isActive tooltip="API Reference">
+            <SidebarMenuButton isActive tooltip={t('api_reference')}>
               <Network />
-              <span>API Reference</span>
+              <span>{t('api_reference')}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

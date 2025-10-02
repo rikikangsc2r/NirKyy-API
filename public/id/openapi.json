@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NirKyy API",
+    "version": "1.0.0",
+    "description": "Dokumentasi API untuk layanan NirKyy.",
+    "contact": {
+      "name": "NirKyy",
+      "url": "https://wa.me/6283894391287"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://dummyjson.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Utama",
+      "description": "Endpoint utama"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": ["Utama"],
+        "summary": "Dapatkan semua produk",
+        "responses": {
+          "200": {
+            "description": "Daftar produk.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "products": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
