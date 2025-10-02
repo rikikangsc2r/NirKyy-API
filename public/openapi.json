@@ -1,23 +1,26 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.3",
   "info": {
     "title": "NirKyy API",
     "version": "1.0.0",
-    "description": "API Reference for NirKyy"
-  },
-  "servers": [
-    {
-      "url": "/"
+    "description": "API Reference for NirKyy",
+    "contact": {
+      "name": "NirKyy",
+      "url": "https://wa.me/6283894391287"
     }
-  ],
+  },
   "paths": {
     "/api/main/ping": {
       "get": {
-        "summary": "Ping",
-        "description": "A simple endpoint to check if the API is up and running. This endpoint is configured to allow all CORS origins.",
+        "tags": [
+          "Main"
+        ],
+        "summary": "Check API status",
+        "description": "Returns a pong message to indicate the API is running.",
+        "operationId": "ping",
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -35,6 +38,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
