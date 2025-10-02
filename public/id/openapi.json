@@ -11,17 +11,21 @@
   },
   "servers": [
     {
-      "url": "/api/main"
+      "url": "/api"
     }
   ],
   "tags": [
     {
       "name": "Utama",
       "description": "Endpoint utama"
+    },
+    {
+      "name": "Spotify",
+      "description": "Endpoint terkait Spotify"
     }
   ],
   "paths": {
-    "/ping": {
+    "/main/ping": {
       "get": {
         "tags": ["Utama"],
         "summary": "Cek Ping API",
@@ -50,6 +54,80 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/spotify/track": {
+      "get": {
+        "tags": ["Spotify"],
+        "summary": "Unduh lagu Spotify",
+        "description": "Mengunduh lagu dari Spotify dan mengembalikan tautan unduhan langsung.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "URL lagu Spotify yang akan diunduh.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Respon sukses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dlink": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "comments": {
+                      "type": "string"
+                    },
+                    "cookie": {
+                      "type": "string"
+                    },
+                    "song_name": {
+                      "type": "string"
+                    },
+                    "artist": {
+                      "type": "string"
+                    },
+                    "img": {
+                      "type": "string"
+                    },
+                    "duration": {
+                      "type": "string"
+                    },
+                    "res": {
+                      "type": "integer"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "released": {
+                      "type": "string"
+                    },
+                    "album_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "URL lagu tidak ditemukan"
+          },
+          "500": {
+            "description": "Gagal mengunduh lagu"
           }
         }
       }

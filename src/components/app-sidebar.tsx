@@ -10,8 +10,7 @@ import {
   SidebarMenuButton,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Network, Github } from "lucide-react";
-import { Separator } from "./ui/separator";
+import { Network } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 
 export function AppSidebar() {
@@ -37,17 +36,6 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter>
-         <Separator className="my-2 bg-sidebar-border" />
-         <SidebarMenu>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild variant="ghost" className="justify-start">
-                    <a href="https://github.com/firebase/genkit-js" target="_blank" rel="noopener noreferrer">
-                        <Github />
-                        <span>GitHub</span>
-                    </a>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );

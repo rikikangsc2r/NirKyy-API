@@ -11,17 +11,21 @@
   },
   "servers": [
     {
-      "url": "/api/main"
+      "url": "/api"
     }
   ],
   "tags": [
     {
       "name": "Main",
       "description": "Main endpoints"
+    },
+    {
+      "name": "Spotify",
+      "description": "Spotify related endpoints"
     }
   ],
   "paths": {
-    "/ping": {
+    "/main/ping": {
       "get": {
         "tags": ["Main"],
         "summary": "Ping the API",
@@ -50,6 +54,80 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/spotify/track": {
+      "get": {
+        "tags": ["Spotify"],
+        "summary": "Download a Spotify track",
+        "description": "Downloads a track from Spotify and returns a direct download link.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "The URL of the Spotify track to download.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dlink": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "comments": {
+                      "type": "string"
+                    },
+                    "cookie": {
+                      "type": "string"
+                    },
+                    "song_name": {
+                      "type": "string"
+                    },
+                    "artist": {
+                      "type": "string"
+                    },
+                    "img": {
+                      "type": "string"
+                    },
+                    "duration": {
+                      "type": "string"
+                    },
+                    "res": {
+                      "type": "integer"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "released": {
+                      "type": "string"
+                    },
+                    "album_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing track URL"
+          },
+          "500": {
+            "description": "Failed to download track"
           }
         }
       }
