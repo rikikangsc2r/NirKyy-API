@@ -82,40 +82,22 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "dlink": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    },
-                    "comments": {
-                      "type": "string"
-                    },
-                    "cookie": {
-                      "type": "string"
-                    },
-                    "song_name": {
+                    "title": {
                       "type": "string"
                     },
                     "artist": {
                       "type": "string"
                     },
-                    "img": {
-                      "type": "string"
-                    },
                     "duration": {
                       "type": "string"
                     },
-                    "res": {
-                      "type": "integer"
-                    },
-                    "url": {
+                    "image": {
                       "type": "string"
                     },
-                    "released": {
+                    "spotifyUrl": {
                       "type": "string"
                     },
-                    "album_name": {
+                    "downloadUrl": {
                       "type": "string"
                     }
                   }
