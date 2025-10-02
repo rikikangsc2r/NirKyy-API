@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://dummyjson.com"
+      "url": "/api/main"
     }
   ],
   "tags": [
@@ -21,23 +21,30 @@
     }
   ],
   "paths": {
-    "/products": {
+    "/ping": {
       "get": {
         "tags": ["Utama"],
-        "summary": "Dapatkan semua produk",
+        "summary": "Cek Ping API",
+        "description": "Mengembalikan status 'ok' jika API berjalan.",
         "responses": {
           "200": {
-            "description": "Daftar produk.",
+            "description": "Respon sukses",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "products": {
-                      "type": "array",
-                      "items": {
-                        "type": "object"
-                      }
+                    "status": {
+                      "type": "string",
+                      "example": "ok"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "pong"
+                    },
+                    "author": {
+                      "type": "string",
+                      "example": "NirKyy"
                     }
                   }
                 }
